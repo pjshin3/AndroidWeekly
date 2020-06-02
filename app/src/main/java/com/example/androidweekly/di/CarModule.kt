@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class   CarModule {
+class CarModule {
     @Provides
     fun provideCarEngine(part : PartA) : CarEngine{
         return CarEngine(part)

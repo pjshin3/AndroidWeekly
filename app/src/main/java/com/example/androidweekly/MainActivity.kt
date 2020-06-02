@@ -2,28 +2,12 @@ package com.example.androidweekly
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.androidweekly.di.Car
-import com.example.androidweekly.di.CarModule
-import com.example.androidweekly.di.ContextModule
-import com.example.androidweekly.di.DaggerCarComponnet
+import androidx.databinding.DataBindingUtil.setContentView
+import com.example.androidweekly.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var car : Car
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        injectComponnet()
+        setContentView<ActivityMainBinding>(this,R.layout.activity_main)
     }
-
-    private fun injectComponnet(){
-        car = DaggerCarComponnet.builder()
-            .carModule(CarModule())
-            .contextModule(ContextModule(this))
-            .build()
-            .getCar()
-    }
-
 }
