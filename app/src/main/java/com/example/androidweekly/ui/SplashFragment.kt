@@ -5,10 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.androidweekly.R
 import com.example.androidweekly.databinding.FragmentSplashBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class SplashFragment() : BaseFragment<FragmentSplashBinding> (
     viewId = R.layout.fragment_splash
