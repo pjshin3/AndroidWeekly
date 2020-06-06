@@ -13,8 +13,9 @@ class SplashFragment() : BaseFragment<FragmentSplashBinding> (
     private val scope =  CoroutineScope(Dispatchers.Main)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lottie.setAnimation("splash.json")
         scope.launch {
-            delay(2000)
+            delay(3500)
             findNavController().navigate(R.id.action_splash_to_home)
         }
     }

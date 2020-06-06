@@ -19,6 +19,25 @@
         android:name="com.example.androidweekly.ui.HomeFragment"
         tools:layout="@layout/fragment_home"
         >
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/fragment_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_detail"
+        android:name="com.example.androidweekly.ui.DetailWebViewFragment"
+        tools:layout="@layout/fragment_detail"
+        >
+        <argument
+            android:name="url"
+            app:argType="string"
+            />
     </fragment>
 
 

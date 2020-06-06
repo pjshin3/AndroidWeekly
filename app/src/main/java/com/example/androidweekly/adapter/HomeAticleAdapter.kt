@@ -4,11 +4,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidweekly.databinding.ItemFragmenthomeBinding
 import com.example.androidweekly.model.WeeklyAticle
+import com.example.androidweekly.ui.HomeFragmentDirections
 
 class HomeAticleAdapter : ListAdapter<WeeklyAticle, RecyclerView.ViewHolder>(diffItem()){
 
@@ -23,9 +25,22 @@ class HomeAticleAdapter : ListAdapter<WeeklyAticle, RecyclerView.ViewHolder>(dif
     }
 
     class AticleViewHolder(private val binding: ItemFragmenthomeBinding): RecyclerView.ViewHolder(binding.root){
+
+        init {
+            binding.setClickListener {
+                binding.item?.let {item ->
+                    navigationToDetail(item.herf,it)
+                }
+            }
+        }
+        fun navigationToDetail(item : String,view: View){
+            val direction = HomeFragmentDirections.actionHomeToDetail(item)
+            view.findNavController().navigate(direction)
+        }
+
+
         fun bind(_item : WeeklyAticle){
-            Log.e("philip","아이템 로그 =${_item.hadline}")
-            if (_item.imageurl == ""){
+            if (_item.imageurl.isNullOrEmpty()){
                 binding.image.visibility = View.GONE
             }
             binding.item = _item

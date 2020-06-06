@@ -90,12 +90,16 @@
             android:gravity="center"
             app:isGone="@{hasList}"
             >
-            <ProgressBar
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                >
-            </ProgressBar>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loadingAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true">
+            </com.airbnb.lottie.LottieAnimationView>
+
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

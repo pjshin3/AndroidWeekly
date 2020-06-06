@@ -22,15 +22,15 @@ class Crawling {
            dataModel.date = doc.select(".issue-header small").text()
            dataModel.number = doc.select(".issue-header span").text()
 
-           doc.select(".sections a[href]").forEachIndexed { index, element ->
-               dataModel.aticle
-                   .add(WeeklyAticle(
-                       hadline = doc.text(),
-                       herf = doc.attr("herf")))
-           }
-           doc.select(".sections p").forEachIndexed { index, element ->
-               Log.e("philip","모델 ${element.text()}")
-               dataModel.aticle[index].description = doc.text()
+           doc.select(".sections table").forEachIndexed { index, element ->
+               val aticle = WeeklyAticle()
+               if (!element.select(".article-headline").text().isNullOrEmpty()){
+                   aticle.imageurl = element.select("img[src]").attr("src")
+                   aticle.hadline = element.select(".article-headline").text()
+                   aticle.description = element.select("p").text()
+                   aticle.herf = element.select(".article-headline").attr("href")
+                   dataModel.aticle.add(aticle)
+               }
            }
        }
        return dataModel

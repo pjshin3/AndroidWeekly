@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AndroidWeekly</string>
 
-    <string name="fragment_home">home</string>
+    <string name="fragment_home">Home</string>
+    <string name="fragment_detail">Detail</string>
     <string name="splash_title">*~Weekly Android~*</string>
 </resources>

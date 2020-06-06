@@ -11,6 +11,7 @@ buildscript {
         koin = '1.0.2'
         rxjava = '2.2.0'
         espressoVersion = '3.1.1'
+        lottieVersion='3.4.0'
     }
     repositories {
         google()

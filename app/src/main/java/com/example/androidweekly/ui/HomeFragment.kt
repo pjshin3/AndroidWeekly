@@ -25,11 +25,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
         binding.hasList = false
         binding.aticleRecyclerview.adapter = aticleAdapter
+        binding.loadingAnimation.setAnimation("aticle_loading.json")
 
 
         vm.result.observe(viewLifecycleOwner){
             binding.hasList = true
-            Log.e("philip","옵저브 테스트 ${it.aticle.size}")
             aticleAdapter.submitList(it.aticle)
             binding.model = it
         }
