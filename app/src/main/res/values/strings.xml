@@ -4,4 +4,7 @@
     <string name="fragment_home">Home</string>
     <string name="fragment_detail">Detail</string>
     <string name="splash_title">*~Weekly Android~*</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

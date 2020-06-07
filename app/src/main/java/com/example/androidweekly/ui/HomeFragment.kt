@@ -2,7 +2,11 @@ package com.example.androidweekly.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import com.example.androidweekly.R
 import com.example.androidweekly.adapter.HomeAticleAdapter
@@ -10,6 +14,7 @@ import com.example.androidweekly.databinding.FragmentHomeBinding
 import com.example.androidweekly.di.DaggerViewModelComponnet
 import com.example.androidweekly.di.HomeFragmentViewModelModule
 import com.example.androidweekly.viewmodel.HomeFragmentViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     viewId = R.layout.fragment_home
@@ -27,11 +32,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         binding.aticleRecyclerview.adapter = aticleAdapter
         binding.loadingAnimation.setAnimation("aticle_loading.json")
 
-
         vm.result.observe(viewLifecycleOwner){
             binding.hasList = true
             aticleAdapter.submitList(it.aticle)
             binding.model = it
+        }
+        lottie.setAnimation("navigation_menu.json")
+        lottie.setOnClickListener {
+            lottie.playAnimation()
         }
     }
 

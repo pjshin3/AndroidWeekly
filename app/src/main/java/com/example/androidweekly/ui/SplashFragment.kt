@@ -1,6 +1,7 @@
 package com.example.androidweekly.ui
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.androidweekly.R
@@ -14,9 +15,10 @@ class SplashFragment() : BaseFragment<FragmentSplashBinding> (
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lottie.setAnimation("splash.json")
-        scope.launch {
-            delay(3500)
-            findNavController().navigate(R.id.action_splash_to_home)
-        }
+        Handler().postDelayed(Runnable {
+            findNavController().popBackStack()
+            val directions = SplashFragmentDirections.actionSplashToHome()
+            this.findNavController().navigate(directions)
+        },3000)
     }
 }
