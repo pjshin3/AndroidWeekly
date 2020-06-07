@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
@@ -40,6 +41,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         lottie.setAnimation("navigation_menu.json")
         lottie.setOnClickListener {
             lottie.playAnimation()
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback {
+            Log.e("philip","테스트")
         }
     }
 

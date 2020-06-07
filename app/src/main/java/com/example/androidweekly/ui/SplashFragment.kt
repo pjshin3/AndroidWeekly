@@ -11,14 +11,14 @@ import kotlinx.coroutines.*
 class SplashFragment() : BaseFragment<FragmentSplashBinding> (
     viewId = R.layout.fragment_splash
 ){
-    private val scope =  CoroutineScope(Dispatchers.Main)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lottie.setAnimation("splash.json")
-        Handler().postDelayed(Runnable {
-            findNavController().popBackStack()
-            val directions = SplashFragmentDirections.actionSplashToHome()
-            this.findNavController().navigate(directions)
-        },3000)
+        MainScope().launch {
+            delay(3500)
+            withContext(Dispatchers.Main){
+                findNavController().navigate(SplashFragmentDirections.actionSplashToHome())
+            }
+        }
     }
 }
