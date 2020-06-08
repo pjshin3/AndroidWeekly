@@ -7,6 +7,7 @@ import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
@@ -16,15 +17,25 @@ class CrawlingTest {
     fun setUp(){
         crawling = Crawling()
     }
-    @Test
-    fun `test Title Img Url`(){
-        var compara : WeeklyAndroidDataModel
-        CoroutineScope(Dispatchers.IO).launch {
-            compara = crawling.getWeeklyData()
 
-            assertEquals("#416",compara.number)
-        }
+    @Test
+    fun `TEST WEEKLY NUMBER`(){
+        val result = runBlocking { crawling.getWeeklyData().number }
+        assertEquals("#417",result)
     }
 
+    @Test
+    fun `TEST WEEKLY DATE`(){
+        val result = runBlocking { crawling.getWeeklyData().date }
+        println(result)
+        assertEquals("June 7th, 2020",result)
+    }
+
+    @Test
+    fun `TEST WEEKLY ATICLE SIZE`(){
+        val result = runBlocking { crawling.getWeeklyData().aticle.size }
+        println(result)
+        assertEquals(25,result)
+    }
 
 }

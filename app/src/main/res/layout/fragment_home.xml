@@ -124,15 +124,16 @@
 
             </LinearLayout>
 
+            <com.google.android.material.navigation.NavigationView
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:menu="@menu/navigation_item_manu"
+                android:layout_gravity="start"
+                >
+            </com.google.android.material.navigation.NavigationView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <include
-            layout="@layout/navigation_side_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-        </include>
-
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

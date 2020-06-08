@@ -2,12 +2,14 @@ package com.example.androidweekly.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.observe
 import com.example.androidweekly.R
 import com.example.androidweekly.adapter.HomeAticleAdapter
@@ -41,10 +43,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         lottie.setAnimation("navigation_menu.json")
         lottie.setOnClickListener {
             lottie.playAnimation()
+            drawer.openDrawer(GravityCompat.START)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback {
-            Log.e("philip","테스트")
         }
     }
 
